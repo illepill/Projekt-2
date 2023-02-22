@@ -29,12 +29,12 @@ for n=1:N
         u(:,n+1) = u(:,n) + k/6*(w1+2*w2+2*w3+w4);
 end
 
-I1 = find((u(2,:) < 0.05) & (u(2,:) > 0));
+I = find((u(2,:) < 0.05) & (u(2,:) > 0));
 
 figure(1)
 plot(u(1,:),u(2,:));
 hold on
-for i=1:length(I1)
-    plot(u(1,I1(i)),u(2,I1(i)),'*',color='red');
+for i=1:length(I)
+    plot(u(1,I(i)),u(2,I(i)),'*',color='red');
 end
 hold off

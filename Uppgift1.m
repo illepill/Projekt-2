@@ -51,6 +51,8 @@ for i=1:length(k)
         u(:,n+1) = u(:,n) + k(i)./6*(w1+2*w2+2*w3+w4);
     end
     
+    %disp(u(2,end));
+    
     error(i) = sqrt((u(1,end) - x)^2+(u(2,end) - y)^2);
 end
     

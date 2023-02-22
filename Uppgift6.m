@@ -44,6 +44,8 @@ for i=1:length(k_ver)
     
     u(:,1) = u0;
     
+    
+    
     for n=1:N_ver(i)
         w1 = FP2(t(n), u(:,n));
         w2 = FP2(t(n) + k_ver(i)/2, u(:,n) + k_ver(i)/2*w1);

@@ -7,7 +7,7 @@ v0 = 400;
 T = 50;
 
 %För finare plot, välj fler steg (tar längre tid)
-theta = linspace(1,89,10);
+theta = linspace(1,89,100);
 
 %Dessa behövs för att spara värden från for-loopen
 integral = zeros(1,length(theta));
