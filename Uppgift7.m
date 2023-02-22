@@ -57,41 +57,6 @@ x_N(1,2) = u2(1,I2(end));
 diff = abs(x_N(1,1) - x_N(1,2));
 
 disp(['Skillnaden i flyglängden då man bortser från y-beroendet är: ', num2str(diff), ' m']);
-
-%Nu vidare till att kolla för olika tidssteg:
-
-k1 = [1 5 8 9 9.3 9.4 9.5 9.6 10];
-
-for i=1:length(k1)
-    
-    T1 = 100;
-    
-    t1 = 0:k1(i):T1;
-    
-    N1 = round(T1/k1(i));
-    
-    u3 = zeros(4,N1+1);
-    
-    u3(:,1) = u0;
-    
-    for n=1:N1
-        w1 = FP3(t1(n), u3(:,n));
-        w2 = FP3(t1(n) + k1(i)./2, u3(:,n) + k1(i)./2*w1);
-        w3 = FP3(t1(n) + k1(i)./2, u3(:,n) + k1(i)./2*w2);
-        w4 = FP3(t1(n) + k1(i), u3(:,n) + k1(i).*w3);
-        u3(:,n+1) = u3(:,n) + k1(i)./6*(w1 + 2*w2 + 2*w3 + w4);
-    end
-    
-    x_vel = u3(3,:);
-    y_vel = u3(4,:);
-    
-    ener = energy(x_vel,y_vel);
-    
-    figure(1)
-    plot(t1(i),ener)
-    hold on
-    
-end
     
     
 
